@@ -1,0 +1,57 @@
+<?php
+// Provjera je li sesija vec pokrenuta
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <title>Prijava</title>
+</head>
+<body>
+    <header>
+        <div class="slikica"></div>
+        <nav>
+            <ul>
+                <li><a href="index.php">Početna</a></li>
+                <li><a href="vijesti.php">Vijesti</a></li>
+                <li><a href="o-nama.php">O nama</a></li>
+                <li><a href="kontakt.php">Kontakt</a></li>
+                <li><a href="galerija.php">Galerija</a></li>
+                <li><a href="registracija.php">Registracija</a></li>
+                <li><a href="login.html">Prijava</a></li>
+                <!-- HTML za prikazivanje ako je korisnik prijavljen -->
+                <li id="greeting-message"><?php echo isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true ? "Dobar dan, " . $_SESSION['username'] : ""; ?></li>
+                <!-- HTML za link za odjavu ako je korisnik prijavljen -->
+                <li id="logout-link"><?php echo isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true ? '<a href="logout.php"></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1>Prijava</h1>
+
+    <form id="loginForm" action="login.php" method="post">
+        <label for="username">Korisničko ime:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Lozinka:</label>
+        <input type="password" id="password" name="password" required>
+
+        <!-- skriveno polje za pohranu trenutne adrese stranice -->
+        <input type="hidden" name="redirect_url" value="<?php echo $_SERVER['HTTP_REFERER']; ?>">
+
+        <input type="submit" value="Prijavi se">
+    </form>
+
+    <footer>
+        <p>Copyright &copy; 2024. Gorica Putovanja d.o.o. by Dominik Đuračić. <a href="https://github.com/dominikduracic/php_projektni_zadatak/" target="_blank"><img src="img/GitHub-Mark-Light-32px.png" title="Github" alt="Github"></a></p>
+    </footer>
+</body>
+</html>
