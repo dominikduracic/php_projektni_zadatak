@@ -34,7 +34,7 @@ if (session_status() == PHP_SESSION_NONE) {
 
             <?php
             if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-                echo '<li><a href="registracija.html">Registracija</a></li>';
+                echo '<li><a href="registracija.php">Registracija</a></li>';
                 echo '<li><a href="login.html">Prijava</a></li>';
             } else {
                 echo '<li class="greeting-logout-container">';
@@ -70,7 +70,7 @@ if (session_status() == PHP_SESSION_NONE) {
 			<p>Madrid, Barcelona,... </p>
 			<p>Za dodatna osiguranja potrebna je nadoplata!</p><br>
 			<p><time datetime="2023.-1-2">2. siječnja 2023.</time></p><br>
-			<p><a href="vijesti.html">Nazad na vijesti</a></p>
+			<p><a href="vijesti.php">Nazad na vijesti</a></p>
 		</div>
 	<footer>
 		<p>Copyright &copy; 2024. Gorica Putovanja d.o.o. by Dominik Đuračić. <a href="https://github.com/dominikduracic/php_projektni_zadatak/" target="_blank"><img src="img/GitHub-Mark-Light-32px.png" title="Github" alt="Github"></a></p>

@@ -52,7 +52,7 @@ $isLoggedIn = isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true;
         echo '<p>Morate se prijaviti ili registrirati kako biste vidjeli sadržaj.';
 
         // hiperveze na stranice prijave i registracije
-        echo ' <a href="login.html">Prijavite se</a> ili <a href="registracija.html">registrirajte</a>.</p>';
+        echo ' <a href="login.html">Prijavite se</a> ili <a href="registracija.php">registrirajte</a>.</p>';
     } else {
         // Ako je korisnik prijavljen, prikazuje se  banner i ostatak contenta
     ?>
